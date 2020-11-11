@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": "https://github.com/wiloke1/react-generate",
+  "bugs": {
+    "url": "https://github.com/wiloke1/react-generate/issues"
+  },
+  "homepage": "https://github.com/wiloke1/react-generate#readme",
   "author": "wiloke1",
   "license": "MIT",
   "keywords": [],
@@ -108,6 +112,7 @@
     "typescript": "^4.0.2"
   },
   "files": [
+    "bin",
     "dist",
     "LICENSE",
     "README.md"
