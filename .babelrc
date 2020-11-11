@@ -3,12 +3,17 @@
   "retainLines": true,
   "minified": false,
   "inputSourceMap": false,
-  "sourceMaps": false,
+  "sourceMaps": true,
   "plugins": [
     [
       "module-resolver",
       {
-        "root": ["./dist"]
+        "root": ["./dist"],
+        "alias": {
+          "core": "./core",
+          "templates": "./templates",
+          "types": "./types"
+        }
       }
     ]
   ]

@@ -1,4 +1,4 @@
-import { ComponentOptions } from 'types/ComponentOptions';
+import { ComponentOptions } from '../types/ComponentOptions';
 
 const createFuncComponent = ({ name, ts = false, rn = false, style = '' }: ComponentOptions) => `
 import React, { FC } from 'react';${rn ? `\nimport { View, Text } from 'react-native';` : ''}${

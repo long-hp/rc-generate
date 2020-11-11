@@ -1,4 +1,4 @@
-import { ComponentOptions } from 'types/ComponentOptions';
+import { ComponentOptions } from '../types/ComponentOptions';
 
 const createClassComponent = ({ name, ts = false, rn = false, style = '' }: ComponentOptions) => `import React, { Component } from 'react';${
   rn ? `\nimport { View, Text } from 'react-native';` : ''
