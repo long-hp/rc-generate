@@ -4,7 +4,7 @@ exports.createCLI = exports.config = void 0;
 var commander_1 = require("commander");
 var isDev = process.env.NODE_ENV === 'dev';
 var config = {
-    appDir: 'src',
+    appDir: '',
     typescript: true,
     reactNative: false,
 };

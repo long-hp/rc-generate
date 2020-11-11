@@ -6,13 +6,13 @@ import { createCLI, config } from './core/cli';
 import log from './core/log';
 
 const cliOption = createCLI();
-const folderComponent = path.resolve('src', cliOption['component:name']);
+const folderComponent = path.resolve(cliOption.appDir || config.appDir, cliOption['component:name']);
 
-function init() {
+async function init() {
   log('\n🚀  Generating...\n');
-  writeFileClassComponent(cliOption, folderComponent, config);
-  writeFileStyle(cliOption, folderComponent);
-  writeFileRedux(cliOption, folderComponent, config);
+  await writeFileClassComponent(cliOption, folderComponent, config);
+  await writeFileStyle(cliOption, folderComponent);
+  await writeFileRedux(cliOption, folderComponent, config);
   log(`✅  ${cliOption['component:name']} generate successfully\n`, 32);
 }
 

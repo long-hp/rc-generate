@@ -8,7 +8,7 @@ var createFuncComponent_1 = __importDefault(require("../templates/createFuncComp
 var getStyle_1 = __importDefault(require("./getStyle"));
 function checkComponent(cliOption, config) {
     var options = {
-        name: cliOption['component:name'],
+        name: cliOption['component:name'].replace(/^.*\//g, ''),
         rn: config.reactNative,
         ts: config.typescript,
         style: getStyle_1.default(cliOption.style),

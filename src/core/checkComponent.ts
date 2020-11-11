@@ -7,7 +7,7 @@ import getStyle from './getStyle';
 
 function checkComponent(cliOption: CLIOptions, config: Config) {
   const options: ComponentOptions = {
-    name: cliOption['component:name'],
+    name: cliOption['component:name'].replace(/^.*\//g, ''),
     rn: config.reactNative,
     ts: config.typescript,
     style: getStyle(cliOption.style),
