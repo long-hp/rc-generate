@@ -15,7 +15,7 @@ npm install rc-generate --save-dev
 **yarn**
 
 ```bash
-yarn add wil-rn-instafeed -
+yarn add wil-rn-instafeed --dev
 ```
 
 ## Use in project
