@@ -7,7 +7,7 @@ export interface ConfigTemplates {
 }
 
 export interface Config {
-  appDir: string;
+  baseUrl: string;
   typescript: boolean;
   reactNative: boolean;
   templates: ConfigTemplates;

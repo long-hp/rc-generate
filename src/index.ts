@@ -2,11 +2,12 @@ import path from 'path';
 import writeFileStyle from './core/writeFileStyle';
 import writeFileClassComponent from './core/writeFileClassComponent';
 import writeFileRedux from './core/writeFileRedux';
-import { createCLI, config } from './core/cli';
+import { createCLI, createConfig } from './core/cli';
 import log from './core/log';
 
+const config = createConfig();
 const cliOption = createCLI();
-const folderComponent = path.resolve(cliOption['app-dir'] || config.appDir, cliOption['component:name']);
+const folderComponent = path.resolve(process.cwd(), config.baseUrl, cliOption['component:name']);
 
 async function init() {
   log('\n🚀  Generating...\n');

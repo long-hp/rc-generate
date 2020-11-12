@@ -1,31 +1,43 @@
+import path from 'path';
+import fs from 'fs-extra';
 import { program } from 'commander';
 import { CLIOptions } from '../types/CLIOptions';
 import { Config } from '../types/Config';
 
 const isDev = process.env.NODE_ENV === 'dev';
+const projectPackageJson = path.resolve(process.cwd(), 'package.json');
+const projectConfigFile = path.resolve(process.cwd(), 'rc-generate.config.js');
 
-let config: Config;
+// eslint-disable-next-line
+if ((!require(projectPackageJson)['rc-generate'] || fs.existsSync(projectConfigFile)) && !isDev) {
+  throw new Error('You have not created a config rc-generate for the project. Please see here https://github.com/wiloke1/rc-generate');
+}
 
-if (isDev) {
-  config = {
-    appDir: '',
-    typescript: true,
-    reactNative: false,
-    templates: {
-      styles: '',
-      actions: '',
-      reducers: '',
-      sagas: '',
-      thunks: '',
-    },
-  };
-} else {
-  // eslint-disable-next-line
-  config = require('../../../../rc-generate.config.js');
-  if (!config) {
+function createConfig() {
+  let config: Config;
+
+  if (isDev) {
+    config = {
+      baseUrl: '',
+      typescript: true,
+      reactNative: false,
+      templates: {
+        styles: '',
+        actions: '',
+        reducers: '',
+        sagas: '',
+        thunks: '',
+      },
+    };
+  } else {
     // eslint-disable-next-line
-    config = require('../../../../package.json')['rc-generate'];
+    config = require(path.resolve(process.cwd(), 'rc-generate.config.js'));
+    if (!config) {
+      // eslint-disable-next-line
+    config = require(path.resolve(process.cwd(), 'package.json'))['rc-generate'];
+    }
   }
+  return config;
 }
 
 function createCLI(): CLIOptions {
@@ -33,7 +45,6 @@ function createCLI(): CLIOptions {
   program.version(require('../../package.json').version);
 
   program
-    .option('-d, --app-dir <string>', 'The name of the application directory')
     .option('-c:type, --component:type <function | class>', 'Generate a component type', 'function')
     .option('-c:name, --component:name <string>', 'Generate a component name', 'ComponentName')
     .option('-s, --style <css | scss | react-native>', 'Generate a style')
@@ -44,4 +55,4 @@ function createCLI(): CLIOptions {
   return program as any;
 }
 
-export { config, createCLI };
+export { createConfig, createCLI };
