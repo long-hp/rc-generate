@@ -9,7 +9,7 @@ const projectPackageJson = path.resolve(process.cwd(), 'package.json');
 const projectConfigFile = path.resolve(process.cwd(), 'rc-generate.config.js');
 
 // eslint-disable-next-line
-if ((!require(projectPackageJson)['rc-generate'] || fs.existsSync(projectConfigFile)) && !isDev) {
+if ((!require(projectPackageJson)['rc-generate'] || !fs.existsSync(projectConfigFile)) && !isDev) {
   throw new Error('You have not created a config rc-generate for the project. Please see here https://github.com/wiloke1/rc-generate');
 }
 

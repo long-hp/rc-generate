@@ -11,7 +11,7 @@ var isDev = process.env.NODE_ENV === 'dev';
 var projectPackageJson = path_1.default.resolve(process.cwd(), 'package.json');
 var projectConfigFile = path_1.default.resolve(process.cwd(), 'rc-generate.config.js');
 // eslint-disable-next-line
-if ((!require(projectPackageJson)['rc-generate'] || fs_extra_1.default.existsSync(projectConfigFile)) && !isDev) {
+if ((!require(projectPackageJson)['rc-generate'] || !fs_extra_1.default.existsSync(projectConfigFile)) && !isDev) {
     throw new Error('You have not created a config rc-generate for the project. Please see here https://github.com/wiloke1/rc-generate');
 }
 function createConfig() {
