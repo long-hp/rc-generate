@@ -6,7 +6,7 @@ export interface ConfigTemplates {
     thunks: string;
 }
 export interface Config {
-    appDir: string;
+    baseUrl: string;
     typescript: boolean;
     reactNative: boolean;
     templates: ConfigTemplates;

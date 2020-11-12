@@ -29,7 +29,7 @@ yarn add rc-generate --dev
   },
   // Config with package.json
   "rc-generate": {
-    "appDir": "src",
+    "baseUrl": "src",
     "typescript": true,
     "reactNative": false
   },
@@ -57,7 +57,7 @@ const sagas = ``;
 const thunks = ``;
 
 const config = {
-  appDir: 'src',
+  baseUrl: 'src',
   typescript: true,
   reactNative: false,
   templates: {
@@ -92,20 +92,19 @@ npm install rc-generate -g
 ## Use with npx
 
 ```bash
-npx rc-generate --app-dir user/projectName/src --style scss --redux saga --component:name components/Button
+npx rc-generate --style scss --redux saga --component:name components/Button
 ```
 
 ## Use with npm global
 
 ```bash
-rc-generate --app-dir user/projectName/src --style scss --redux saga --component:name components/Button
+rc-generate --style scss --redux saga --component:name components/Button
 ```
 
 ## Options
 
 | Option                      | Type                        | Default    | Description |
 | :---------                  | :-------:                   | :-----:    | :----------- |
-| -d, --app-dir               | `string`                    | -          | The name of the application directory  |
 | -c:type, --component:type   | `function, class`           | `function` | Generate a component type ( example: Button or components/Button) |
 | -c:name, --component:name   | `string`                    | -          | Generate a component name  |
 | -s, --style                 | `css, scss, react-native`   | -          | Generate a style |

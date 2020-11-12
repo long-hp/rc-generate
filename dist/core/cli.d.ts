@@ -1,5 +1,5 @@
 import { CLIOptions } from '../types/CLIOptions';
 import { Config } from '../types/Config';
-declare let config: Config;
+declare function createConfig(): Config;
 declare function createCLI(): CLIOptions;
-export { config, createCLI };
+export { createConfig, createCLI };

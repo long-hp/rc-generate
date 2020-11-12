@@ -45,21 +45,22 @@ var writeFileClassComponent_1 = __importDefault(require("./core/writeFileClassCo
 var writeFileRedux_1 = __importDefault(require("./core/writeFileRedux"));
 var cli_1 = require("./core/cli");
 var log_1 = __importDefault(require("./core/log"));
+var config = cli_1.createConfig();
 var cliOption = cli_1.createCLI();
-var folderComponent = path_1.default.resolve(cliOption['app-dir'] || cli_1.config.appDir, cliOption['component:name']);
+var folderComponent = path_1.default.resolve(process.cwd(), config.baseUrl, cliOption['component:name']);
 function init() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     log_1.default('\n🚀  Generating...\n');
-                    return [4 /*yield*/, writeFileClassComponent_1.default(cliOption, folderComponent, cli_1.config)];
+                    return [4 /*yield*/, writeFileClassComponent_1.default(cliOption, folderComponent, config)];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, writeFileStyle_1.default(cliOption, folderComponent, cli_1.config)];
+                    return [4 /*yield*/, writeFileStyle_1.default(cliOption, folderComponent, config)];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, writeFileRedux_1.default(cliOption, folderComponent, cli_1.config)];
+                    return [4 /*yield*/, writeFileRedux_1.default(cliOption, folderComponent, config)];
                 case 3:
                     _a.sent();
                     log_1.default("\u2705  " + cliOption['component:name'] + " generate successfully\n", 32);
