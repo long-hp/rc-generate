@@ -11,10 +11,18 @@ async function writeFileRedux(cliOption: CLIOptions, folderComponent: string, co
   const thunkFile = path.resolve(folderComponent, 'thunks', `thunks.${dotFile}`);
   try {
     if (cliOption.redux === 'saga') {
-      await Promise.all([fs.outputFile(actionFile, ''), fs.outputFile(reducerFile, ''), fs.outputFile(sagaFile, '')]);
+      await Promise.all([
+        fs.outputFile(actionFile, config.templates.actions),
+        fs.outputFile(reducerFile, config.templates.reducers),
+        fs.outputFile(sagaFile, config.templates.sagas),
+      ]);
     }
     if (cliOption.redux === 'thunk') {
-      await Promise.all([fs.outputFile(actionFile, ''), fs.outputFile(reducerFile, ''), fs.outputFile(thunkFile, '')]);
+      await Promise.all([
+        fs.outputFile(actionFile, config.templates.actions),
+        fs.outputFile(reducerFile, config.templates.reducers),
+        fs.outputFile(thunkFile, config.templates.thunks),
+      ]);
     }
   } catch (err) {
     console.log(err);

@@ -56,13 +56,21 @@ function writeFileRedux(cliOption, folderComponent, config) {
                 case 1:
                     _a.trys.push([1, 6, , 7]);
                     if (!(cliOption.redux === 'saga')) return [3 /*break*/, 3];
-                    return [4 /*yield*/, Promise.all([fs_extra_1.default.outputFile(actionFile, ''), fs_extra_1.default.outputFile(reducerFile, ''), fs_extra_1.default.outputFile(sagaFile, '')])];
+                    return [4 /*yield*/, Promise.all([
+                            fs_extra_1.default.outputFile(actionFile, config.templates.actions),
+                            fs_extra_1.default.outputFile(reducerFile, config.templates.reducers),
+                            fs_extra_1.default.outputFile(sagaFile, config.templates.sagas),
+                        ])];
                 case 2:
                     _a.sent();
                     _a.label = 3;
                 case 3:
                     if (!(cliOption.redux === 'thunk')) return [3 /*break*/, 5];
-                    return [4 /*yield*/, Promise.all([fs_extra_1.default.outputFile(actionFile, ''), fs_extra_1.default.outputFile(reducerFile, ''), fs_extra_1.default.outputFile(thunkFile, '')])];
+                    return [4 /*yield*/, Promise.all([
+                            fs_extra_1.default.outputFile(actionFile, config.templates.actions),
+                            fs_extra_1.default.outputFile(reducerFile, config.templates.reducers),
+                            fs_extra_1.default.outputFile(thunkFile, config.templates.thunks),
+                        ])];
                 case 4:
                     _a.sent();
                     _a.label = 5;

@@ -46,7 +46,7 @@ var writeFileRedux_1 = __importDefault(require("./core/writeFileRedux"));
 var cli_1 = require("./core/cli");
 var log_1 = __importDefault(require("./core/log"));
 var cliOption = cli_1.createCLI();
-var folderComponent = path_1.default.resolve(cliOption.appDir || cli_1.config.appDir, cliOption['component:name']);
+var folderComponent = path_1.default.resolve(cliOption['app-dir'] || cli_1.config.appDir, cliOption['component:name']);
 function init() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -56,7 +56,7 @@ function init() {
                     return [4 /*yield*/, writeFileClassComponent_1.default(cliOption, folderComponent, cli_1.config)];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, writeFileStyle_1.default(cliOption, folderComponent)];
+                    return [4 /*yield*/, writeFileStyle_1.default(cliOption, folderComponent, cli_1.config)];
                 case 2:
                     _a.sent();
                     return [4 /*yield*/, writeFileRedux_1.default(cliOption, folderComponent, cli_1.config)];

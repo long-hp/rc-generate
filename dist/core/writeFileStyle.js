@@ -41,7 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var fs_extra_1 = __importDefault(require("fs-extra"));
-function writeFileStyle(cliOption, folderComponent) {
+function writeFileStyle(cliOption, folderComponent, config) {
     return __awaiter(this, void 0, void 0, function () {
         var err_1;
         return __generator(this, function (_a) {
@@ -49,13 +49,13 @@ function writeFileStyle(cliOption, folderComponent) {
                 case 0:
                     _a.trys.push([0, 5, , 6]);
                     if (!(cliOption.style === 'scss')) return [3 /*break*/, 2];
-                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.scss"), '')];
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.scss"), config.templates.styles)];
                 case 1:
                     _a.sent();
                     _a.label = 2;
                 case 2:
                     if (!(cliOption.style === 'css')) return [3 /*break*/, 4];
-                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.css"), '')];
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.css"), config.templates.styles)];
                 case 3:
                     _a.sent();
                     _a.label = 4;
