@@ -12,16 +12,15 @@ async function writeFileRedux(cliOption: CLIOptions, folderComponent: string, co
   try {
     if (cliOption.redux === 'saga') {
       await Promise.all([
-        fs.outputFile(actionFile, config.templates.actions),
-        fs.outputFile(reducerFile, config.templates.reducers),
-        fs.outputFile(sagaFile, config.templates.sagas),
+        fs.outputFile(actionFile, config.templates.actions.trim()),
+        fs.outputFile(reducerFile, config.templates.reducers.trim()),
+        fs.outputFile(sagaFile, config.templates.sagas.trim()),
       ]);
-    }
-    if (cliOption.redux === 'thunk') {
+    } else if (cliOption.redux === 'thunk') {
       await Promise.all([
-        fs.outputFile(actionFile, config.templates.actions),
-        fs.outputFile(reducerFile, config.templates.reducers),
-        fs.outputFile(thunkFile, config.templates.thunks),
+        fs.outputFile(actionFile, config.templates.actions.trim()),
+        fs.outputFile(reducerFile, config.templates.reducers.trim()),
+        fs.outputFile(thunkFile, config.templates.thunks.trim()),
       ]);
     }
   } catch (err) {
