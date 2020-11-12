@@ -89,12 +89,6 @@ yarn rcg --style scss --redux saga --component:name components/Button --componen
 npm install rc-generate -g
 ```
 
-## Use with npx
-
-```bash
-npx rc-generate --style scss --redux saga --component:name components/Button
-```
-
 ## Use with npm global
 
 ```bash
