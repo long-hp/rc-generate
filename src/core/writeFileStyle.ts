@@ -5,7 +5,9 @@ import { CLIOptions } from '../types/CLIOptions';
 
 async function writeFileStyle(cliOption: CLIOptions, folderComponent: string, config: Config) {
   try {
-    if (cliOption.style === 'scss') {
+    if (cliOption.style === 'react-native') {
+      await fs.outputFile(path.resolve(folderComponent, `styles.${config.typescript ? 'ts' : 'js'}`), config.templates.styles.trim());
+    } else if (cliOption.style === 'scss') {
       await fs.outputFile(
         path.resolve(folderComponent, `${cliOption['component:name'].replace(/^.*\//g, '')}.module.scss`),
         config.templates.styles.trim(),

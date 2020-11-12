@@ -103,15 +103,15 @@ rc-generate --app-dir user/projectName/src --style scss --redux saga --component
 
 ## Options
 
-| Option                  | Type                                | Default | Description |
-| :---------            | :-------:          | :-----: | :----------- |
-| -d, --app-dir   | `string`  | -       | The name of the application directory  |
-| -c:type, --component:type   | `function | class`   | `function`       | Generate a component type ( example: Button or components/Button) |
-| -c:name, --component:name   | `string`  | -       | Generate a component name  |
-| -s, --style    | `css | scss`      | -       | Generate a style |
-| -r, --redux    | `thunk | saga`      | -       | Generate a redux state management |
-| -V, --version    | -      | -       | output the version number |
-| -h, --help    | -      | -       | display help for command |
+| Option                      | Type                        | Default    | Description |
+| :---------                  | :-------:                   | :-----:    | :----------- |
+| -d, --app-dir               | `string`                    | -          | The name of the application directory  |
+| -c:type, --component:type   | `function | class`          | `function` | Generate a component type ( example: Button or components/Button) |
+| -c:name, --component:name   | `string`                    | -          | Generate a component name  |
+| -s, --style                 | `css | scss | react-native` | -          | Generate a style |
+| -r, --redux                 | `thunk | saga`              | -          | Generate a redux state management |
+| -V, --version               | -                           | -          | output the version number |
+| -h, --help                  | -                           | -          | display help for command |
 
 ## License
 

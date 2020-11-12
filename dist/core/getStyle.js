@@ -6,6 +6,8 @@ function getStyle(style) {
             return 'css';
         case 'scss':
             return 'scss';
+        case 'react-native':
+            return 'react-native';
         default:
             return '';
     }

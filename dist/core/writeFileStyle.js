@@ -47,24 +47,30 @@ function writeFileStyle(cliOption, folderComponent, config) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 5, , 6]);
-                    if (!(cliOption.style === 'scss')) return [3 /*break*/, 2];
-                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.scss"), config.templates.styles.trim())];
+                    _a.trys.push([0, 7, , 8]);
+                    if (!(cliOption.style === 'react-native')) return [3 /*break*/, 2];
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, "styles." + (config.typescript ? 'ts' : 'js')), config.templates.styles.trim())];
                 case 1:
                     _a.sent();
-                    return [3 /*break*/, 4];
+                    return [3 /*break*/, 6];
                 case 2:
-                    if (!(cliOption.style === 'css')) return [3 /*break*/, 4];
-                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.css"), config.templates.styles.trim())];
+                    if (!(cliOption.style === 'scss')) return [3 /*break*/, 4];
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.scss"), config.templates.styles.trim())];
                 case 3:
                     _a.sent();
-                    _a.label = 4;
-                case 4: return [3 /*break*/, 6];
+                    return [3 /*break*/, 6];
+                case 4:
+                    if (!(cliOption.style === 'css')) return [3 /*break*/, 6];
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.css"), config.templates.styles.trim())];
                 case 5:
+                    _a.sent();
+                    _a.label = 6;
+                case 6: return [3 /*break*/, 8];
+                case 7:
                     err_1 = _a.sent();
                     console.log(err_1);
-                    return [3 /*break*/, 6];
-                case 6: return [2 /*return*/];
+                    return [3 /*break*/, 8];
+                case 8: return [2 /*return*/];
             }
         });
     });

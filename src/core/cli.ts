@@ -36,7 +36,7 @@ function createCLI(): CLIOptions {
     .option('-d, --app-dir <string>', 'The name of the application directory')
     .option('-c:type, --component:type <function | class>', 'Generate a component type', 'function')
     .option('-c:name, --component:name <string>', 'Generate a component name', 'ComponentName')
-    .option('-s, --style <css | scss>', 'Generate a style')
+    .option('-s, --style <css | scss | react-native>', 'Generate a style')
     .option('-r, --redux <thunk | saga>', 'Generate a redux state management');
 
   program.parse(process.argv);
