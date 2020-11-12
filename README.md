@@ -25,7 +25,7 @@ yarn add rc-generate --dev
 ```js
 {
   "scripts": {
-    "rc-generate": "rcg"
+    "rcg": "rc-generate"
   },
   // Config with package.json
   "rc-generate": {
