@@ -49,13 +49,13 @@ function writeFileStyle(cliOption, folderComponent, config) {
                 case 0:
                     _a.trys.push([0, 5, , 6]);
                     if (!(cliOption.style === 'scss')) return [3 /*break*/, 2];
-                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.scss"), config.templates.styles)];
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.scss"), config.templates.styles.trim())];
                 case 1:
                     _a.sent();
-                    _a.label = 2;
+                    return [3 /*break*/, 4];
                 case 2:
                     if (!(cliOption.style === 'css')) return [3 /*break*/, 4];
-                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.css"), config.templates.styles)];
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + ".module.css"), config.templates.styles.trim())];
                 case 3:
                     _a.sent();
                     _a.label = 4;

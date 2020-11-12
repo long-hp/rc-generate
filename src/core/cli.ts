@@ -5,6 +5,7 @@ import { Config } from '../types/Config';
 const isDev = process.env.NODE_ENV === 'dev';
 
 let config: Config;
+
 if (isDev) {
   config = {
     appDir: '',
