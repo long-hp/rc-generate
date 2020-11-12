@@ -68,7 +68,7 @@ const config = {
     thunks
   }
 }
-export default config;
+module.exports = config;
 ```
 
 **cli:**
