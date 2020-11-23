@@ -14,10 +14,10 @@ function checkComponent(cliOption: CLIOptions, config: Config) {
   };
   switch (cliOption['component:type']) {
     case 'function':
-      return createFuncComponent(options);
+      return createFuncComponent({ ...options, componentContent: config.templates.componentContent });
     case 'class':
     default:
-      return createClassComponent(options);
+      return createClassComponent({ ...options, componentContent: config.templates.componentContent });
   }
 }
 

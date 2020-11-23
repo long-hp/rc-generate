@@ -55,6 +55,9 @@ const getTodo = () => {
 const reducers = ``;
 const sagas = ``;
 const thunks = ``;
+const componentContent = `
+<div>Content</div>
+`;
 
 const config = {
   baseUrl: 'src',
@@ -65,7 +68,8 @@ const config = {
     actions,
     reducers,
     sagas,
-    thunks
+    thunks,
+    componentContent,
   }
 }
 module.exports = config;

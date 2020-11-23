@@ -3,4 +3,5 @@ export interface ComponentOptions {
   ts?: boolean;
   rn?: boolean;
   style: 'css' | 'scss' | 'react-native' | '';
+  componentContent?: string;
 }

@@ -63,7 +63,8 @@ function init() {
                     return [4 /*yield*/, writeFileRedux_1.default(cliOption, folderComponent, config)];
                 case 3:
                     _a.sent();
-                    log_1.default("\u2705  " + cliOption['component:name'] + " generate successfully\n", 32);
+                    log_1.default(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + "." + (config.typescript ? 'tsx' : 'jsx') + "\n"));
+                    log_1.default("\u2705  Generate successfully\n", 32);
                     return [2 /*return*/];
             }
         });

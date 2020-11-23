@@ -14,7 +14,8 @@ async function init() {
   await writeFileClassComponent(cliOption, folderComponent, config);
   await writeFileStyle(cliOption, folderComponent, config);
   await writeFileRedux(cliOption, folderComponent, config);
-  log(`✅  ${cliOption['component:name']} generate successfully\n`, 32);
+  log(path.resolve(folderComponent, `${cliOption['component:name'].replace(/^.*\//g, '')}.${config.typescript ? 'tsx' : 'jsx'}\n`));
+  log(`✅  Generate successfully\n`, 32);
 }
 
 init();

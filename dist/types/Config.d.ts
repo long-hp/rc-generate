@@ -4,6 +4,7 @@ export interface ConfigTemplates {
     reducers: string;
     sagas: string;
     thunks: string;
+    componentContent: string;
 }
 export interface Config {
     baseUrl: string;

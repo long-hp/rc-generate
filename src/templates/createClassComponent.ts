@@ -1,7 +1,7 @@
 import { ComponentOptions } from '../types/ComponentOptions';
 import { importStyles } from './importStyles';
 
-const createClassComponent = ({ name, ts = false, rn = false, style = '' }: ComponentOptions) =>
+const createClassComponent = ({ name, ts = false, rn = false, style = '', componentContent = '' }: ComponentOptions) =>
   `
 import React, { Component } from 'react';${rn ? `\nimport { View, Text } from 'react-native';` : ''}${importStyles({ name, rn, style })}${
     ts ? `\n\nexport interface ${name}Props {}` : ''
@@ -15,7 +15,7 @@ export default class ${name} extends Component${ts ? `<${name}Props>` : ''} {
 
   ${ts ? 'public' : ''} render() {
     return (
-      ${rn ? `<View><Text>${name}</Text></View>` : `<div>${name}</div>`}
+      ${!!componentContent ? componentContent : rn ? `<View><Text>${name}</Text></View>` : `<div>${name}</div>`}
     )
   }
 }
