@@ -4,30 +4,12 @@ React CLI to generate components ( Reactjs + React Native)
 
 [![npm version](https://img.shields.io/npm/v/rc-generate.svg)](https://www.npmjs.com/package/rc-generate)
 
-## Install
-
-**npm**
-
-```bash
-npm install rc-generate --save-dev
-```
-
-**yarn**
-
-```bash
-yarn add rc-generate --dev
-```
-
 ## Use in project
 
-**package.json**
+**Config with package.json**
 
 ```js
 {
-  "scripts": {
-    "rcg": "rc-generate"
-  },
-  // Config with package.json
   "rc-generate": {
     "baseUrl": "src",
     "typescript": true,
@@ -36,7 +18,7 @@ yarn add rc-generate --dev
 }
 ```
 
-**Config with project -> rc-generate.config.js**
+**Or config with rc-generate.config.js**
 
 ```js
 const styles = `
@@ -55,9 +37,6 @@ const getTodo = () => {
 const reducers = ``;
 const sagas = ``;
 const thunks = ``;
-const componentContent = `
-<div>Content</div>
-`;
 
 const config = {
   baseUrl: 'src',
@@ -68,32 +47,27 @@ const config = {
     actions,
     reducers,
     sagas,
-    thunks,
-    componentContent,
+    thunks
   }
 }
 module.exports = config;
 ```
 
-**cli:**
+## Easy use with npx
 
 ```bash
-npm run rcg --style scss --redux saga --component:name components/Button --component:type class
+npx rc-generate --style scss --redux saga --component:name components/Button
 ```
 
-**or:**
+## Or use with npm global
 
-```bash
-yarn rcg --style scss --redux saga --component:name components/Button --component:type class
-```
-
-**or npm global**
+**Install**
 
 ```bash
 npm install rc-generate -g
 ```
 
-## Use with npm global
+**Usage**
 
 ```bash
 rc-generate --style scss --redux saga --component:name components/Button
