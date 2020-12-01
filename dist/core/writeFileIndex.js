@@ -41,15 +41,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var fs_extra_1 = __importDefault(require("fs-extra"));
-var checkComponent_1 = __importDefault(require("./checkComponent"));
-function writeFileClassComponent(cliOption, folderComponent, config) {
+var content = function (componentName, isRedux) {
+    return isRedux
+        ? "\nimport " + componentName + " from './" + componentName + "';\n\n// eslint-disable-next-line\nexport type { " + componentName + "Props } from './" + componentName + "';\nexport { " + componentName + " };\n"
+        : "\nexport { default } from './" + componentName + "';\n// eslint-disable-next-line\nexport type { " + componentName + "Props } from './" + componentName + "';\n\n";
+};
+function writeFileIndex(cliOption, folderComponent, config) {
     return __awaiter(this, void 0, void 0, function () {
-        var err_1;
+        var componentName, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + "." + (config.typescript ? 'tsx' : 'jsx')), checkComponent_1.default(cliOption, config))];
+                    componentName = "" + cliOption['component:name'].replace(/^.*\//g, '');
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, "index." + (config.typescript ? 'ts' : 'js')), content(componentName, !!cliOption.redux).trim())];
                 case 1:
                     _a.sent();
                     return [3 /*break*/, 3];
@@ -62,4 +67,4 @@ function writeFileClassComponent(cliOption, folderComponent, config) {
         });
     });
 }
-exports.default = writeFileClassComponent;
+exports.default = writeFileIndex;

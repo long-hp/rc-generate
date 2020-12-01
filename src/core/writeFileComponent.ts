@@ -4,7 +4,7 @@ import { CLIOptions } from 'types/CLIOptions';
 import { Config } from 'types/Config';
 import checkComponent from './checkComponent';
 
-async function writeFileClassComponent(cliOption: CLIOptions, folderComponent: string, config: Config) {
+async function writeFileComponent(cliOption: CLIOptions, folderComponent: string, config: Config) {
   try {
     await fs.outputFile(
       path.resolve(folderComponent, `${cliOption['component:name'].replace(/^.*\//g, '')}.${config.typescript ? 'tsx' : 'jsx'}`),
@@ -15,4 +15,4 @@ async function writeFileClassComponent(cliOption: CLIOptions, folderComponent: s
   }
 }
 
-export default writeFileClassComponent;
+export default writeFileComponent;

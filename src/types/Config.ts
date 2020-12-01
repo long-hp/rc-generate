@@ -12,4 +12,5 @@ export interface Config {
   typescript: boolean;
   reactNative: boolean;
   templates: ConfigTemplates;
+  createIndexFile: boolean;
 }

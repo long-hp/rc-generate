@@ -40,41 +40,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
-var writeFileIndex_1 = __importDefault(require("./core/writeFileIndex"));
-var writeFileStyle_1 = __importDefault(require("./core/writeFileStyle"));
-var writeFileComponent_1 = __importDefault(require("./core/writeFileComponent"));
-var writeFileRedux_1 = __importDefault(require("./core/writeFileRedux"));
-var cli_1 = require("./core/cli");
-var log_1 = __importDefault(require("./core/log"));
-var config = cli_1.createConfig();
-var cliOption = cli_1.createCLI();
-var folderComponent = path_1.default.resolve(process.cwd(), config.baseUrl, cliOption['component:name']);
-function init() {
+var fs_extra_1 = __importDefault(require("fs-extra"));
+var checkComponent_1 = __importDefault(require("./checkComponent"));
+function writeFileComponent(cliOption, folderComponent, config) {
     return __awaiter(this, void 0, void 0, function () {
+        var err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    log_1.default('\n🚀  Generating...\n');
-                    return [4 /*yield*/, writeFileComponent_1.default(cliOption, folderComponent, config)];
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, fs_extra_1.default.outputFile(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + "." + (config.typescript ? 'tsx' : 'jsx')), checkComponent_1.default(cliOption, config))];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, writeFileStyle_1.default(cliOption, folderComponent, config)];
+                    return [3 /*break*/, 3];
                 case 2:
-                    _a.sent();
-                    return [4 /*yield*/, writeFileRedux_1.default(cliOption, folderComponent, config)];
-                case 3:
-                    _a.sent();
-                    if (!config.createIndexFile) return [3 /*break*/, 5];
-                    return [4 /*yield*/, writeFileIndex_1.default(cliOption, folderComponent, config)];
-                case 4:
-                    _a.sent();
-                    _a.label = 5;
-                case 5:
-                    log_1.default(path_1.default.resolve(folderComponent, cliOption['component:name'].replace(/^.*\//g, '') + "." + (config.typescript ? 'tsx' : 'jsx') + "\n"));
-                    log_1.default("\u2705  Generate successfully\n", 32);
-                    return [2 /*return*/];
+                    err_1 = _a.sent();
+                    console.log(err_1);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
 }
-init();
+exports.default = writeFileComponent;

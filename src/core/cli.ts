@@ -21,6 +21,7 @@ function createConfig() {
       baseUrl: '',
       typescript: true,
       reactNative: false,
+      createIndexFile: false,
       templates: {
         styles: '',
         actions: '',
